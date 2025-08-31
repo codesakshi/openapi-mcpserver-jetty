@@ -1,0 +1,31 @@
+mcp-server:
+  server-name: my-mcp-server
+  app-context-path: /mcp
+  app-port: 8081
+  openapi:
+    - server-name: new-petstore
+      server-version: 1.0.0
+      servlet-path-spec: /new-petstore
+      sse-endpoint: ssenew
+      api-doc-location: https://petstore3.swagger.io/api/v3/openapi.json
+      #api-host-url: https://petstore3.swagger.io/api/v3
+      api-server-index: 0
+      optimize-schema: true
+      api-authorization: ""
+      api-connection-timeout-ms: 30000
+      api-read-timeout-ms: 10000
+      api-max-retries: 3
+      api-retry-delay-ms: 100
+    - server-name: old-petstore
+      server-version: 1.0.0
+      servlet-path-spec: /old-petstore
+      sse-endpoint: sse
+      api-doc-location: https://petstore.swagger.io/v2/swagger.json
+      #api-host-url: https://petstore.swagger.io/v2
+      api-server-index: 0
+      optimize-schema: false
+      api-authorization: ""
+      api-connection-timeout-ms: 30000
+      api-read-timeout-ms: 10000
+      api-max-retries: 3
+      api-retry-delay-ms: 100

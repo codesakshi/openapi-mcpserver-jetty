@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorinterval="30" strict="true">
+
+    <Appenders>
+        <Console name="Console">
+               <Layout type="PatternLayout" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %c{1.} Line: %L - %msg%n"/>
+        </Console>
+
+         <File name="FileAppender" fileName="../logs/application.log" append="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %c{1.} Line: %L - %msg%n"/>
+        </File>
+
+    </Appenders>
+    
+    <Loggers>
+        <Logger name="io.swagger.v3.parser" level="WARN" additivity="false"/>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
